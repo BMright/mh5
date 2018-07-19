@@ -1,82 +1,124 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
-		<title>计算器</title>
+		<meta charset="utf-8" />
+		<title>河南大学教务系统</title>
 		<style type="text/css">
-			body{
-				background-color:#00CAFF;
+			*{
+				margin:0;
+				padding:0;	
 			}
-			table{
-				/*border:1px;*/
-				width:820px;
-				height:1000px;
-				cellspacing:0;
-				cellpadding:0;
-				/*border:1px solid #ff0000;*/
-				margin:0px auto;
-			}
-			table td{
-				width:200px;
-				height:160px;
-			}
-			table td button{
-				width:100%;
-				height:100%;
-				font-size:120px;
-				background-color:deepskyblue;
-			}
-		</style>
-		<script>
-			var result="";
-			function number(num){
-				if(num=="=")
-				{
-					document.getElementById("screen").value=eval(result);
-					result="";
-				}
-				else
-				{
-					result=result+num;
-					document.getElementById("screen").value=result;
-				}
+			#inter{
+				weight:100%;
+				height:960px;
 				
 			}
-			function reset(){
-				document.getElementById("screen").value="";
+			#main{
+				width:100%;
+				height:772px;
+				position:relative;
+				background:linear-gradient(#B3633A,#F7EFE7);
 			}
-		</script>
+			#content{
+				width:606px;
+				height:450px;
+				margin:0 auto;
+				/*border:3px solid #000000;*/
+				position:relative;
+				top:100px;
+				box-shadow:20px 30px 10px #D5A990;
+			}
+			.load{
+				width:100%;
+				height:350px;
+				position:relative;
+				top:-4px;
+				background:linear-gradient(#F6EEE5,#E7C9AA);
+			}
+			#load_content{
+				width:200px;
+				height:100px;
+				/*border:3px solid #000000;*/
+				margin:0 auto;
+				padding-top:60px;
+				font-size:15px;
+			}
+			.submit{
+				width:140px;
+				height:40px;
+				margin:0 auto;
+				padding-left:30px;
+				/*border:3px solid #000000;*/
+			}
+			a{
+				color:blue;
+			}
+			a{
+				text-decoration:none;
+			}
+			a:hover{
+				color:#DB6D00;
+			}
+			.span1{
+				width:520px;
+				/*border:3px solid #000000;*/
+				margin:0 auto;
+				display:block;
+				position:relative;
+				top:130px;
+				left:150px;
+				font-size:13px;
+			}
+			.span2{
+				position:relative;
+				top:200px;
+				left:20px;
+				width:245px;
+				/*border:3px solid #000000;*/
+				margin:0 auto;
+				display:block;
+				font-size:13px;
+			}
+			#foot{
+				width:100%;
+				height:188px;
+				background-color:#E2EDE5;
+			}
+			
+		</style>
 	</head>
 	<body>
-		<table border="1px">
-			<tr>
-				<td colspan="4"><input type="text" id="screen" style="width:100%;height:100%;font-size:120px; "></td>
-			</tr>
-			<tr>
-				<td><button type="button" id="1" onclick="number(this.id)" value="1">1</button></td>
-				<td><button type="button" id="2" onclick="number(this.id)" value="2">2</button></td>
-				<td><button type="button" id="3" onclick="number(this.id)" value="3">3</button></td>
-				<td><button type="button" id="+" onclick="number(this.id)" value="+">+</button></td>
-			</tr>
-			<tr>
-				<td><button type="button" id="4" onclick="number(this.id)" value="4">4</button></td>
-				<td><button type="button" id="5" onclick="number(this.id)" value="5">5</button></td>
-				<td><button type="button" id="6" onclick="number(this.id)" value="6">6</button></td>
-				<td><button type="button" id="-" onclick="number(this.id)" value="-">-</button></td>
-			</tr>
-			<tr>
-				<td><button type="button" id="7" onclick="number(this.id)" value="7">7</button></td>
-				<td><button type="button" id="8" onclick="number(this.id)" value="8">8</button></td>
-				<td><button type="button" id="9" onclick="number(this.id)" value="9">9</button></td>
-				<td><button type="button" id="*" onclick="number(this.id)" value="*">*</button></td>
-			</tr>
-			<tr>
-				<td><button type="button" id="0" onclick="number(this.id)" value="0">0</button></td>
-				<td><button type="button" id="c" onclick="reset()" value="c">c</button></td>
-				<td><button type="button" id="=" onclick="number(this.id)" value="=">=</button></td>
-				<td><button type="button" id="/" onclick="number(this.id)" value="/">/</button></td>
-			</tr>
-			
-		</table>
+		<div id="inter">
+			<div id="main">
+				<div id="content">
+					<img height="120px" width="100%" src="imgs/title.gif">
+					<div class="load">
+						<div id="load_content">
+							<form action="action_gap.php" method="post">
+								<label for="user">账 &emsp;&emsp;号</label>
+								<input type="text" name="user" size="15">
+								<br/></br>
+								<label for="password">密 &emsp;&emsp;码</label>
+								<input type="text" name="password" size="15">
+								<br/><br/>
+								&emsp;&nbsp;<label for="key">验证码</label>
+								<input type="text" name="key"size="1">
+								<img src="img/title.jpg" style="width:80px;height:30px;display:block;float:right" alt="验证码">
+								<br/><br/><br/>
+								<div class="submit">
+									<input type="submit" name="submit" style="width:60px;height:20px;font-size:14px" value="登 录">
+									&emsp;<a href="http://xk.henu.edu.cn/frame/retrievePassword.jsp">忘记密码</a>
+								</div>
+							</form>
+						</div>
+						<span class="span1">推荐使用IE8+浏览器，<a href="http://xk.henu.edu.cn/cas/login.action">点我</a>设置系统运行环境。</span>
+					</div>
+				</div>
+				<span class="span2">©2018&emsp;<a href="http://www.kingosoft.com/">湖南青果软件有限公司</a>&emsp;版权所有</span>
+			</div>
+			<div id="foot">
+		
+			</div>
+		</div>
 	</body>
 </html>
