@@ -2,123 +2,116 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>河南大学教务系统</title>
+		<title>课表</title>
 		<style type="text/css">
-			*{
-				margin:0;
-				padding:0;	
+			body{
+				background:#FEF8B6;
+				width:60%;
+				margin:0 auto;
 			}
-			#inter{
-				weight:100%;
-				height:960px;
-				
+			#course{
+				width:100%
+				height:600px;
+				margin:0 auto;
+				position:relative;
+				text-align:center;
 			}
-			#main{
+			table{
+				position:absolute;
 				width:100%;
-				height:772px;
-				position:relative;
-				background:linear-gradient(#B3633A,#F7EFE7);
+				border-collapse:collapse;
+				border:3px solid #ff0000;
 			}
-			#content{
-				width:606px;
-				height:450px;
-				margin:0 auto;
-				/*border:3px solid #000000;*/
-				position:relative;
-				top:100px;
-				box-shadow:20px 30px 10px #D5A990;
+			.course-title{
+				font-size:40px;
 			}
-			.load{
-				width:100%;
-				height:350px;
-				position:relative;
-				top:-4px;
-				background:linear-gradient(#F6EEE5,#E7C9AA);
+			table th{
+				height:30px;
+				border:2px solid #000000;
+				color:#ff0000;
 			}
-			#load_content{
-				width:200px;
-				height:100px;
-				/*border:3px solid #000000;*/
-				margin:0 auto;
-				padding-top:60px;
-				font-size:15px;
-			}
-			.submit{
-				width:140px;
-				height:40px;
-				margin:0 auto;
-				padding-left:30px;
-				/*border:3px solid #000000;*/
-			}
-			a{
+			table td{
+				height:60px;
+				border:2px solid #000000;
 				color:blue;
 			}
-			a{
-				text-decoration:none;
-			}
-			a:hover{
-				color:#DB6D00;
-			}
-			.span1{
-				width:520px;
-				/*border:3px solid #000000;*/
-				margin:0 auto;
-				display:block;
-				position:relative;
-				top:130px;
-				left:150px;
-				font-size:13px;
-			}
-			.span2{
-				position:relative;
-				top:200px;
-				left:20px;
-				width:245px;
-				/*border:3px solid #000000;*/
-				margin:0 auto;
-				display:block;
-				font-size:13px;
-			}
-			#foot{
-				width:100%;
-				height:188px;
-				background-color:#E2EDE5;
-			}
-			
 		</style>
 	</head>
-	<body>
-		<div id="inter">
-			<div id="main">
-				<div id="content">
-					<img height="120px" width="100%" src="imgs/title.gif">
-					<div class="load">
-						<div id="load_content">
-							<form action="action_gap.php" method="post">
-								<label for="user">账 &emsp;&emsp;号</label>
-								<input type="text" name="user" size="15">
-								<br/></br>
-								<label for="password">密 &emsp;&emsp;码</label>
-								<input type="text" name="password" size="15">
-								<br/><br/>
-								&emsp;&nbsp;<label for="key">验证码</label>
-								<input type="text" name="key"size="1">
-								<img src="img/title.jpg" style="width:80px;height:30px;display:block;float:right" alt="验证码">
-								<br/><br/><br/>
-								<div class="submit">
-									<input type="submit" name="submit" style="width:60px;height:20px;font-size:14px" value="登 录">
-									&emsp;<a href="http://xk.henu.edu.cn/frame/retrievePassword.jsp">忘记密码</a>
-								</div>
-							</form>
-						</div>
-						<span class="span1">推荐使用IE8+浏览器，<a href="http://xk.henu.edu.cn/cas/login.action">点我</a>设置系统运行环境。</span>
-					</div>
-				</div>
-				<span class="span2">©2018&emsp;<a href="http://www.kingosoft.com/">湖南青果软件有限公司</a>&emsp;版权所有</span>
-			</div>
-			<div id="foot">
 		
-			</div>
+	<body>
+		<div id="course">
+			<table>			
+				<caption class="course-title">小迷糊的课表</caption>
+				<tr>
+					<th colspan="2" width="100px"></th>
+					<th>星期一</th>
+					<th>星期二</th>
+					<th>星期三</th>
+					<th>星期四</th>
+					<th>星期五</th>
+					<th>星期六</th>
+					<th>星期日</th>
+				</tr>
+				<tr>
+					<td rowspan="2">上<br/>午</td>
+					<td>一</td>
+					<td></td>
+					<td>5302<br>视听说</td>
+					<td>3301<br>读写译</td>
+					<td>Jave<br>程序设计</td>
+					<td>C#<br>程序设计</td>
+					<td>1203<br>毛概</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>二</td>
+					<td></td>
+					<td>C#<br>程序设计</td>
+					<td>体育<br>刘英</td>
+					<td>汇编语言与接口</td>
+					<td></td>
+					<td></td>
+					<td rowspan="5">mooc</td>
+				</tr>
+				<tr>
+					<td rowspan="3">下<br/>午</td>
+					<td>三</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>四</td>
+					<td>Jave<br>程序设计</td>
+					<td>逻辑设计实验</td>
+					<td>离散数学<br>101</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>五</td>
+					<td></td>
+					<td>6304<br>三节<br>逻辑设计</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td>晚<br/>上</td>
+					<td>六</td>
+					<td></td>
+					<td></td>
+					<td>5306<br>三节<br>汇编语言与接口</td>
+					<td></td>
+					<td>5102<br>两节<br>文明旅游素养</td>
+					<td></td>
+				</tr>
+			</table>
 		</div>
 	</body>
 </html>
