@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>改变div样式</title>
+		<style type="text/css">
+			div{
+				width:100px;
+				height:100px;
+				float:left;
+				border:1px solid #000000;
+			}
+		</style>
+		<script>
+			var i=0;
+			
+			function change(){
+				i=i+1;
+				var a=document.getElementById("change1");
+			    var b=document.getElementById("change2");
+				var c=document.getElementById("change3");
+				var d=document.getElementById("change4");
+				var e=document.getElementById("change5");
+				var f=document.getElementById("change6");
+				var g=document.getElementById("change7");
+				var h=document.getElementById("change8");
+				if(i%2!=0)
+				{
+					document.getElementById("p1").innerHTML=i+" ";
+					a.style.backgroundColor="red";
+					b.style.backgroundColor="white";
+					c.style.backgroundColor="red";
+					d.style.backgroundColor="white";
+					e.style.backgroundColor="red";
+					f.style.backgroundColor="white";
+					g.style.backgroundColor="red";
+					h.style.backgroundColor="white";					
+				}
+				else
+				{	
+					document.getElementById("p1").innerHTML=i+" ";
+					a.style.backgroundColor="white";
+					b.style.backgroundColor="blue";
+					c.style.backgroundColor="white";
+					d.style.backgroundColor="blue";
+					e.style.backgroundColor="white";
+					f.style.backgroundColor="blue";
+					g.style.backgroundColor="white";
+					h.style.backgroundColor="blue";
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="change1">
+			
+		</div>
+		<div id="change2">
+		
+		</div>
+		<div id="change3">
+		
+		</div>
+		<div id="change4">
+		
+		</div>
+		<div id="change5">
+		
+		</div>
+		<div id="change6">
+		
+		</div>
+		<div id="change7">
+		
+		</div>
+		<div id="change8">
+		
+		</div>
+		<input type="button" value="color" onclick="change()"/>
+		<p id="p1"></p>
+	</body>
+</html>
+	
