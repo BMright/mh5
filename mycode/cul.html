@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>计算器</title>
+		<style type="text/css">
+			body{
+				background-color:#00CAFF;
+			}
+			table{
+				/*border:1px;*/
+				width:820px;
+				height:1000px;
+				cellspacing:0;
+				cellpadding:0;
+				/*border:1px solid #ff0000;*/
+				margin:0px auto;
+			}
+			table td{
+				width:200px;
+				height:160px;
+			}
+			table td button{
+				width:100%;
+				height:100%;
+				font-size:120px;
+				background-color:deepskyblue;
+			}
+		</style>
+		<script>
+			/*function number(){
+				var result1="";
+				var result2="";
+				var x="";
+				X=document.getElementTagNames("num1").value;
+				if(isNaN(X)){
+					result2=result1;
+					
+				}
+				else{
+					result1="result1"+"x";
+				}
+				document.getElementById("screen").innerHTML=x;
+				
+			}*/
+			/*function number(){
+				var a=document.getElementTagNames("num1").value;
+				document.getElementById("screen").innerHTML=a;
+				var b=document.getElementTagNames("num2").value;
+				document.getElementById("screen").innerHTML=b;
+				var c=document.getElementTagNames("num3").value;
+				document.getElementById("screen").innerHTML=c;
+				var d=document.getElementTagNames("num4").value;
+				document.getElementById("screen").innerHTML=d;
+				var e=document.getElementTagNames("num5").value;
+				document.getElementById("screen").innerHTML=e;
+				var f=document.getElementTagNames("num6").value;
+				document.getElementById("screen").innerHTML=f;
+				var g=document.getElementTagNames("num7").value;
+				document.getElementById("screen").innerHTML=g;
+				var h=document.getElementTagNames("num8").value;
+				document.getElementById("screen").innerHTML=h;
+				var i=document.getElementTagNames("num9").value;
+				document.getElementById("screen").innerHTML=i;
+				var j=document.getElementTagNames("num10").value;
+				document.getElementById("screen").innerHTML=j;
+				var l=document.getElementTagNames("num11").value;
+				document.getElementById("screen").innerHTML=l;
+				var m=document.getElementTagNames("num12").value;
+				document.getElementById("screen").innerHTML=m;
+				var n=document.getElementTagNames("num13").value;
+				document.getElementById("screen").innerHTML=n;
+				var o=document.getElementTagNames("num14").value;
+				document.getElementById("screen").innerHTML=o;
+				var p=document.getElementTagNames("num15").value;
+				document.getElementById("screen").innerHTML=p;
+				var q=document.getElementTagNames("num16").value;
+				document.getElementById("screen").innerHTML=q;
+			}*/
+			var result="";
+			function number(num){
+				if(num=="=")
+				{
+					document.getElementById("screen").value=eval(result);
+					result="";
+				}
+				else
+				{
+					result=result+num;
+					document.getElementById("screen").value=result;
+				}
+				
+			}
+			function reset(){
+				document.getElementById("screen").value="";
+			}
+		</script>
+	</head>
+	<body>
+		<table border="1px">
+			<tr>
+				<td colspan="4"><input type="text" id="screen" style="width:100%;height:100%;font-size:120px; "></td>
+			</tr>
+			<tr>
+				<td><button type="button" id="1" onclick="number(this.id)" value="1">1</button></td>
+				<td><button type="button" id="2" onclick="number(this.id)" value="2">2</button></td>
+				<td><button type="button" id="3" onclick="number(this.id)" value="3">3</button></td>
+				<td><button type="button" id="+" onclick="number(this.id)" value="+">+</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" id="4" onclick="number(this.id)" value="4">4</button></td>
+				<td><button type="button" id="5" onclick="number(this.id)" value="5">5</button></td>
+				<td><button type="button" id="6" onclick="number(this.id)" value="6">6</button></td>
+				<td><button type="button" id="-" onclick="number(this.id)" value="-">-</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" id="7" onclick="number(this.id)" value="7">7</button></td>
+				<td><button type="button" id="8" onclick="number(this.id)" value="8">8</button></td>
+				<td><button type="button" id="9" onclick="number(this.id)" value="9">9</button></td>
+				<td><button type="button" id="*" onclick="number(this.id)" value="*">*</button></td>
+			</tr>
+			<tr>
+				<td><button type="button" id="0" onclick="number(this.id)" value="0">0</button></td>
+				<td><button type="button" id="c" onclick="reset()" value="c">c</button></td>
+				<td><button type="button" id="=" onclick="number(this.id)" value="=">=</button></td>
+				<td><button type="button" id="/" onclick="number(this.id)" value="/">/</button></td>
+			</tr>
+			
+		</table>
+	</body>
+</html>
+	
