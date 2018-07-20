@@ -1,117 +1,85 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>课表</title>
+		<meta charset="utf-8"/>
+		<title>改变div样式</title>
 		<style type="text/css">
-			body{
-				background:#FEF8B6;
-				width:60%;
-				margin:0 auto;
-			}
-			#course{
-				width:100%
-				height:600px;
-				margin:0 auto;
-				position:relative;
-				text-align:center;
-			}
-			table{
-				position:absolute;
-				width:100%;
-				border-collapse:collapse;
-				border:3px solid #ff0000;
-			}
-			.course-title{
-				font-size:40px;
-			}
-			table th{
-				height:30px;
-				border:2px solid #000000;
-				color:#ff0000;
-			}
-			table td{
-				height:60px;
-				border:2px solid #000000;
-				color:blue;
+			div{
+				width:100px;
+				height:100px;
+				float:left;
+				border:1px solid #000000;
 			}
 		</style>
+		<script>
+			var i=0;
+			
+			function change(){
+				i=i+1;
+				var a=document.getElementById("change1");
+			    var b=document.getElementById("change2");
+				var c=document.getElementById("change3");
+				var d=document.getElementById("change4");
+				var e=document.getElementById("change5");
+				var f=document.getElementById("change6");
+				var g=document.getElementById("change7");
+				var h=document.getElementById("change8");
+				if(i%2!=0)
+				{
+					document.getElementById("p1").innerHTML=i+" ";
+					a.style.backgroundColor="red";
+					b.style.backgroundColor="white";
+					c.style.backgroundColor="red";
+					d.style.backgroundColor="white";
+					e.style.backgroundColor="red";
+					f.style.backgroundColor="white";
+					g.style.backgroundColor="red";
+					h.style.backgroundColor="white";					
+				}
+				else
+				{	
+					document.getElementById("p1").innerHTML=i+" ";
+					a.style.backgroundColor="white";
+					b.style.backgroundColor="blue";
+					c.style.backgroundColor="white";
+					d.style.backgroundColor="blue";
+					e.style.backgroundColor="white";
+					f.style.backgroundColor="blue";
+					g.style.backgroundColor="white";
+					h.style.backgroundColor="blue";
+				}
+				
+				
+			}
+		</script>
 	</head>
-		
 	<body>
-		<div id="course">
-			<table>			
-				<caption class="course-title">小迷糊的课表</caption>
-				<tr>
-					<th colspan="2" width="100px"></th>
-					<th>星期一</th>
-					<th>星期二</th>
-					<th>星期三</th>
-					<th>星期四</th>
-					<th>星期五</th>
-					<th>星期六</th>
-					<th>星期日</th>
-				</tr>
-				<tr>
-					<td rowspan="2">上<br/>午</td>
-					<td>一</td>
-					<td></td>
-					<td>5302<br>视听说</td>
-					<td>3301<br>读写译</td>
-					<td>Jave<br>程序设计</td>
-					<td>C#<br>程序设计</td>
-					<td>1203<br>毛概</td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>二</td>
-					<td></td>
-					<td>C#<br>程序设计</td>
-					<td>体育<br>刘英</td>
-					<td>汇编语言与接口</td>
-					<td></td>
-					<td></td>
-					<td rowspan="5">mooc</td>
-				</tr>
-				<tr>
-					<td rowspan="3">下<br/>午</td>
-					<td>三</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>四</td>
-					<td>Jave<br>程序设计</td>
-					<td>逻辑设计实验</td>
-					<td>离散数学<br>101</td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>五</td>
-					<td></td>
-					<td>6304<br>三节<br>逻辑设计</td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>晚<br/>上</td>
-					<td>六</td>
-					<td></td>
-					<td></td>
-					<td>5306<br>三节<br>汇编语言与接口</td>
-					<td></td>
-					<td>5102<br>两节<br>文明旅游素养</td>
-					<td></td>
-				</tr>
-			</table>
+		<div id="change1">
+			
 		</div>
+		<div id="change2">
+		
+		</div>
+		<div id="change3">
+		
+		</div>
+		<div id="change4">
+		
+		</div>
+		<div id="change5">
+		
+		</div>
+		<div id="change6">
+		
+		</div>
+		<div id="change7">
+		
+		</div>
+		<div id="change8">
+		
+		</div>
+		<input type="button" value="color" onclick="change()"/>
+		<p id="p1"></p>
 	</body>
 </html>
+	
