@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<title>改变div样式</title>
+		<title>改变奇偶div</title>
 		<style type="text/css">
 			div{
 				width:100px;
@@ -12,8 +12,10 @@
 			}
 		</style>
 		<script>
+		
+		/* 此方法虽复杂，但是是我自己所想*/
+		/* 也可用getElementsTagName("div")数组来写，过程更为简便*/
 			var i=0;
-			
 			function change(){
 				i=i+1;
 				var a=document.getElementById("change1");
