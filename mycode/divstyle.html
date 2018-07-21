@@ -13,6 +13,8 @@
 				width:200px;
 				height:200px;
 				border:1px solid #000000;
+				margin:0 auto;
+				padding:10px;
 			}
 		</style>
 		<script>
@@ -35,9 +37,10 @@
 			<input type="button" value="变高" onclick="change('height','400px')">
 		</div>
 		<div id="change0">
-			<input id="t1" type="text"/>
-			<input id="t2" type="text"/>
-			<input id="t3" type="button" value="变换" onclick="change0()"/>
+			<span>请输入属性</span><input id="t1" type="text"/></br/>
+			<span>请输入属性值</span><input id="t2" type="text"/><br/><br/>
+			<input id="t3" type="button" value="变换" onclick="change0()"/><br/>
+			<span>点击变换改变该div的状态</span>
 		</div>
 	</body>
 </html>
