@@ -4,20 +4,29 @@
 		<meta charset="utf-8"/>
 		<title>寻找闰年</title>
 		<style> 
+			html{
+				height:100%;
+			}
 			body{
-				width:35%;
+				width:45%;
 				text-align:center;
 				margin:0 auto;
-				background-color:#FEF8B6;
+				margin-top:150px;
+				margin-right:150px;
+				background-image:url(zuozi.jpeg);
+				background-size:100% 100%;
 			}
 			input{
 				width:100px;
 				height:40px;
 				margin: 40px 0;
+				font-size:25px;
 			}
 			span{
-				font-size:20px;
+				font-size:30px;
+				font-family:华文琥珀;
 			}
+
 		</style>
 		<script>
 			function plus(){
@@ -47,9 +56,9 @@
 		</script>
 	</head>
 	<body>
-		<span>请输入两个年份:</span><input type="text" id="num1" placeholder="num1">
-		<span style="vertical-align:middle;">——></span><input type="text" id="num2" placeholder="num2">
-		<br/><input type="button" value="点击得闰年" onclick="plus()"><p id="result"></p>
+		<span style="color:slategrey;">请输入两个年份:</span><input type="text" id="num1" placeholder="year1">
+		<span style="vertical-align:middle;color:red;">——></span><input type="text" id="num2" placeholder="year2">
+		<br/><input style="width:150px;" type="button" value="点击得闰年" onclick="plus()"><p id="result"></p>
 	</body>
 </html>
 	
