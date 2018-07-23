@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=" utf-8 " />
+		<title>引用练习</title>
+		<script>
+			window.onload=function(){
+				var num1= [45,65,98,1,35,24];
+				document.getElementById("num1").innerHTML="第一个数组为："+num1;
+				var num11=Math.max(45,65,98,1,35,24);
+				document.getElementById("num11").innerHTML="第一个数组最小值为："+Math.min.apply(null,num1);
+				document.getElementById("num12").innerHTML="第一个数组最大值为："+Math.max.apply(null,num1);
+				var num2= new Array(1.3,4.6,5.5);
+				document.getElementById("num2").innerHTML="第二个数组为："+num2;
+				var num21= Math.ceil(num2[0]);
+				document.getElementById("num21").innerHTML="第一个元素上舍入为："+num21;
+				var num22= Math.floor(num2[1]);
+				document.getElementById("num22").innerHTML="第一个元素下舍入为："+num22;
+				var num23= Math.round(num2[2]);
+				document.getElementById("num23").innerHTML="第一个元素四舍五入为："+num23;
+				var num3 = Math.random();
+				document.getElementById("num3").innerHTML="0-1的随机数为："+num3;
+				var num4 = Math.round(Math.random()*20);
+				document.getElementById("num4").innerHTML="0-20的随机数为："+num4;
+				var date1 = new Date();
+				function nowtime(){
+					var date1 = new Date();
+					document.getElementById("date1").innerHTML="现在实时时间为:"+date1;
+				}
+				var z=setInterval(nowtime,500);
+				document.getElementById("date1").innerHTML=z;
+				var date2 = date1.getFullYear();
+				document.getElementById("date2").innerHTML="今年年份为:"+date2;
+				var date3 = date1.getMonth()+1;
+				document.getElementById("date3").innerHTML="今年月份为:"+date3;
+				var date4 = date1.getDate();
+				document.getElementById("date4").innerHTML="今天为"+date4+"号";
+				var date5 = date1.getDay();
+				document.getElementById("date5").innerHTML="今天为星期"+date5;
+				var date6 = date1.getHours(),date7 = date1.getMinutes(),date8 = date1.getSeconds();
+				document.getElementById("date6").innerHTML="打开时间为："+date6+":"+date7+":"+date8;
+				var date9 = Date.parse("1970-4-1");
+				document.getElementById("date9").innerHTML="1970/1/1 午夜距离1970-4-1的毫秒数为:"+date9;
+				var date10 = new Date;
+				document.getElementById("date10").innerHTML="Date 对象的日期部分转换为字符串为:"+date10.toDateString();
+				var date11 = date10.toTimeString();
+				document.getElementById("date11").innerHTML="Date 对象的时间部分转换为字符串为:"+date11;
+				var date12 = date10.getTime();
+				document.getElementById("date12").innerHTML="距1970年1月1日之间的毫秒数为:"+date12;
+				function end(){
+					alert("引用练习结束");
+				}
+				setTimeout(end,2000);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<p id="num1"></p>
+		<p id="num11"></p>
+		<p id="num12"></p>
+		<p id="num2"></p>
+		<p id="num21"></p>
+		<p id="num22"></p>
+		<p id="num23"></p>
+		<p id="num3"></p>
+		<p id="num4"></p>
+		<p id="date1"></p>
+		<p id="date2"></p>
+		<p id="date3"></p>
+		<p id="date4"></p>
+		<p id="date5"></p>
+		<p id="date6"></p>
+		<p id="date9"></p>
+		<p id="date10"></p>
+		<p id="date11"></p>
+		<p id="date12"></p>
+		<input id="a1" />
+		<button type="button" onclick="pause()">点击停止时间</button>
+		<script>
+				function time(){
+					var date = new Date;
+					var t=date.toLocaleTimeString();
+					document.getElementById("a1").value="本地时间："+t;
+				}
+				var z=setInterval(time,500);
+				document.getElementById("a1").value=z;
+				function pause(){
+					clearInterval(z);
+				}
+		</script>
+	</body>
+</html>
