@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>春夏秋冬</title>
+		<style>
+			body{
+				width:420px;
+				color:white;
+				margin:30% auto;
+				background-color:black;
+			}
+			page{
+				font-size:80px;
+			}
+			#c{
+				background-color:red;
+				animation: c 10s infinite;
+			}
+			#x{
+				background-color:gray;
+				animation: x 10s infinite;
+			}
+			#q{
+				background-color:blue;
+				animation: q 10s infinite;
+			}
+			#d{
+				background-color:purple;
+				animation: d 10s infinite;
+			}
+			#n{
+				background-color:brown;
+				animation: n 10s infinite;
+			}
+			@keyframes c {
+				0% { opacity:0 }
+				20% { opacity:100 }
+				40% { opacity:0 }
+				60% { opacity:0 }
+				80% { opacity:0 }
+				100% { opacity:0 }
+			}
+			@keyframes x {
+				0% { opacity:0 }
+				20% { opacity:0 }
+				40% { opacity:100 }
+				60% { opacity:0 }
+				80% { opacity:0 }
+				100% { opacity:0 }
+			}
+			@keyframes q {
+				0% { opacity:0 }
+				20% { opacity:0 }
+				40% { opacity:0 }
+				60% { opacity:100 }
+				80% { opacity:0 }
+				100% { opacity:0 }
+			}
+			@keyframes d {
+				0% { opacity:0 }
+				20% { opacity:0 }
+				40% { opacity:0 }
+				60% { opacity:0 }
+				80% { opacity:100 }
+				100% { opacity:0 }
+			}
+			@keyframes n {
+				0% { opacity:0 }
+				20% { opacity:0 }
+				40% { opacity:0 }
+				60% { opacity:0 }
+				80% { opacity:0 }
+				100% { opacity:100 }
+			}
+			
+		</style>
+	</head>
+	<body>
+		<page id="c">我</page>
+		<page id="x">爱</page>
+		<page id="q">孟</page>
+		<page id="d">晓</page>
+		<page id="n">宁</page>
+	</body>
+</html>
