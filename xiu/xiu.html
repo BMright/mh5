@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>图片轮播</title>
+		<style>
+			*{
+				margin:0;
+				padding:0;
+				text-decoration:none;
+			}
+			body{
+				padding:20px;
+				background-image:url("img/timg.jpg");
+				background-size:100%;
+				width:800px;
+				margin:0 auto;
+			}
+			#container{
+				width:800px;
+				height:900px;
+				border:3px solid #333;
+				overflow:hidden;
+				position:relative;
+			}
+			#list{
+				width:30400px;
+				height:900px;
+				position:absolute;
+				z-index:1;
+			}
+			#list img{
+				float:left;
+				width:800px;
+				height:900px;
+			}
+			#buttons{
+				position:absolute;
+				height:10px;
+				width:620px;
+				z-index:2;
+				bottom:20px;
+				left:90px;
+			}
+			#buttons span{
+				cursor:pointer;
+				float:left;
+				border:1px solid #fff;
+				width:10px;
+				height:10px;
+				border-radius:5px;
+				background:#333;
+				margin-right:5px;
+			}
+			#buttons .on{
+				background:orangered;
+			}
+			.arrow{
+				cursor:pointer;
+				display:none;
+				line-height:39px;
+				text-align:center;
+				font-size:36px;
+				font-weight:bold;
+				width:40px;
+				height:40px;
+				position:absolute;
+				z-index:2;
+				top:430px;
+				background-color: RGBA(0,0,0,.3);color:#fff;
+			}
+			.arrow:hover{
+				background-color:RGBA(0,0,0,.7);
+			}
+			#container:hover .arrow{
+				display:block;
+			}
+			#prev{
+				left:0px;
+				height:60px;
+				padding-top:20px;
+			}
+			#next{
+				right:0px;
+				height:60px;
+				padding-top:20px;
+			}	
+			
+			page{
+				font-size:200px;
+				width:800px;
+				color:white;
+				text-align:center;
+				position:absolute;
+			}
+			#c{
+				animation: c 10s infinite;
+			}
+			#x{
+				animation: x 10s infinite;
+			}
+			#q{
+				animation: q 10s infinite;
+			}
+			#d{
+				animation: d 10s infinite;
+			}
+			#n{
+				animation: n 10s infinite;
+			}
+			@keyframes c {
+				0% { opacity:0; }
+				20% { opacity:1; color:white }
+				40% { opacity:0;}
+				60% { opacity:0;}
+				80% { opacity:0;}
+				100% { opacity:0;}
+			}
+			@keyframes x {
+				0% { opacity:0;}
+				20% { opacity:0;}
+				40% { opacity:1; color:red}
+				60% { opacity:0;}
+				80% { opacity:0;}
+				100% { opacity:0;}
+			}
+			@keyframes q {
+				0% { opacity:0;}
+				20% { opacity:0;}
+				40% { opacity:0;}
+				60% { opacity:1; color:blue}
+				80% { opacity:0;}
+				100% { opacity:0;}
+			}
+			@keyframes d {
+				0% { opacity:0;}
+				20% { opacity:0;}
+				40% { opacity:0;}
+				60% { opacity:0;}
+				80% { opacity:1; color:purple}
+				100% { opacity:0;}
+			}
+			@keyframes n {
+				0% { opacity:0;}
+				20% { opacity:0;}
+				40% { opacity:0;}
+				60% { opacity:0;}
+				80% { opacity:0;}
+				100% { opacity:1; color:brown}
+			}
+			.pic{
+				position:absolute;
+				left:-2000px;
+				z-index:2;
+			}
+			.pic img{
+				width:80px;
+				height:80px;
+				border-radius:60px;
+			}
+		</style>
+		<script>
+			window.onload=function(){
+	var container = document.getElementById("container");
+	var list = document.getElementById("list");
+	var buttons = document.getElementById("buttons").getElementsByTagName("span");
+	var prev = document.getElementById("prev");
+	var next = document.getElementById("next");
+	var index = 1;
+	var animated = false;
+	var timer;
+	
+	function showButton(){
+		for(var i = 0; i < buttons.length; i++){
+			if(buttons[i].className == "on")
+			{
+				buttons[i].className = "";
+				break;
+			}
+		}
+		
+		buttons[index - 1].className = "on";
+		
+	}
+	
+	function animate(offset){
+		animated = true;
+		var newLeft = parseInt(list.style.left) + offset;
+		var time = 500; //位移总时间;
+		var interval = 10; //位移间隔时间;
+		var speed = offset/(time/interval); //每次位移量;
+		
+		function go() {
+			if( (speed < 0 && parseInt(list.style.left) > newLeft) || (speed > 0 && parseInt(list.style.left) < newLeft)) {
+				list.style.left = parseInt(list.style.left) + speed + "px";
+				setTimeout(go,interval);
+			}
+			else
+			{
+				animated = false;
+				list.style.left = newLeft + "px";
+		
+				if(newLeft > -800)
+				{
+					list.style.left = -29000 + "px";
+				}
+				if(newLeft < -29000)
+				{
+					list.style.left = -800 + "px";
+				}
+			}
+		}
+		go();
+	}
+	
+	function play(){
+		timer = setInterval(function(){
+			next.onclick();
+		},2500);
+	}
+	
+	function stop(){
+		clearInterval(timer);
+	}
+	
+	next.onclick = function () {
+		if(index == buttons.length)
+		{
+			index = 1;
+		}
+		else{
+			index += 1;
+		}
+		
+		showButton();
+		if(!animated){
+			animate(-800);
+		}	
+	}
+	prev.onclick = function () {
+		if(index == 1)
+		{
+			index = 36;
+		}
+		else{
+			index -= 1;
+		}
+		
+		showButton();
+		if(!animated){
+			animate(800);
+		}	
+	}
+	
+	for(var i = 0; i < buttons.length; i++)
+	{
+		buttons[i].onclick = function () {
+			if(this.className == "on"){
+				return;
+			}
+			var myIndex = parseInt(this.getAttribute("index"));
+			var offset = -800 * (myIndex - index);
+			index = myIndex;
+			showButton();
+			if(!animated){
+				animate(offset);
+			}
+		}
+	}
+	
+	container.onmousemove = stop;
+	container.onmouseout = play;
+	play();
+	
+	
+	var divs=document.getElementsByClassName("pic");
+				
+				function company(){
+					for(var counter =0;counter < divs.length-1; counter++)
+						{
+							divs[counter].style.top=divs[counter+1].style.top;
+							divs[counter].style.left=divs[counter+1].style.left;
+						}
+					}
+				setInterval(company,50);
+				
+				document.onmousemove=function(ev){
+					var ev0=ev||event;
+					divs[divs.length-1].style.left=ev0.clientX+"px";
+					divs[divs.length-1].style.top=ev0.clientY+"px";
+
+					
+				}
+}
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="list" style="left:-800px;top:0px;">
+				<img src="img/时间32.jpg">
+				<img src="img/时间19.jpg">
+				<img src="img/时间20.jpg">
+				<img src="img/时间25.jpg">
+				<img src="img/时间26.jpg">
+				<img src="img/时间33.jpg">
+				<img src="img/时间7.jpg">
+				<img src="img/时间13.jpg">
+				<img src="img/时间14.jpg">
+				<img src="img/时间15.jpg">
+				<img src="img/时间8.jpg">
+				<img src="img/时间9.jpg">
+				<img src="img/时间16.jpg">
+				<img src="img/时间10.jpg">
+				<img src="img/时间21.jpg">
+				<img src="img/时间1.jpg">
+				<img src="img/时间2.jpg">
+				<img src="img/时间3.jpg">
+				<img src="img/时间4.jpg">
+				<img src="img/时间5.jpg">
+				<img src="img/自拍1.jpg">
+				<img src="img/时间6.jpg">
+				<img src="img/时间17.jpg">
+				<img src="img/时间22.jpg">
+				<img src="img/时间23.jpg">
+				<img src="img/时间24.jpg">
+				<img src="img/水1.jpg">
+				<img src="img/水2.jpg">
+				<img src="img/时间27.jpg">			
+				<img src="img/时间11.jpg">
+				<img src="img/时间12.jpg">		
+				<img src="img/时间18.jpg">		
+				<img src="img/时间31.jpg">
+				<img src="img/时间28.jpg">
+				<img src="img/时间29.jpg">
+				<img src="img/时间30.jpg">	
+				<img src="img/时间32.jpg">
+				<img src="img/时间32.jpg">
+			</div>
+			<div id="buttons">
+				<span index="1" class="on"></span>
+				<span index="2"></span>
+				<span index="3"></span>
+				<span index="4"></span>
+				<span index="5"></span>
+				<span index="6"></span>
+				<span index="7"></span>
+				<span index="8"></span>
+				<span index="9"></span>
+				<span index="10"></span>
+				<span index="11"></span>
+				<span index="12"></span>
+				<span index="13"></span>
+				<span index="14"></span>
+				<span index="15"></span>
+				<span index="16"></span>
+				<span index="17"></span>
+				<span index="18"></span>
+				<span index="19"></span>
+				<span index="20"></span>
+				<span index="21"></span>
+				<span index="22"></span>
+				<span index="23"></span>
+				<span index="24"></span>
+				<span index="25"></span>
+				<span index="26"></span>
+				<span index="27"></span>
+				<span index="28"></span>
+				<span index="29"></span>
+				<span index="30"></span>
+				<span index="31"></span>
+				<span index="32"></span>
+				<span index="33"></span>
+				<span index="34"></span>
+				<span index="35"></span>
+				<span index="36"></span>
+			</div>
+			<a href="javascript:;" class="arrow" id="prev">&lt;</a>
+			<a href="javascript:;" class="arrow" id="next">&gt;</a>
+		</div>
+		<div>
+			<page id="c">生</page>
+			<page id="x">日</page>
+			<page id="q">快</page>
+			<page id="d">乐</page>
+			<page id="n">秀</page>
+		</div>
+		<audio src="img/童话镇.mp3" autoplay="autoplay" loop="loop"></audio>
+		
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		<div class="pic" ><img src="img/pic.gif"></div>
+		
+	</body>
+</html>
