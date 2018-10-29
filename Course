@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="gb2312"/>
+			<title>html学习</title>
+		</head>
+		<body>	
+			<table border="1" align="center" width="800" height="400">
+				<caption align="center">李亚文的课程表<caption>
+				<tr valign="middle" align="center">
+				    <th  colspan="2" height="50" width="150"></th>
+					<th height="50" width="150">星期一</th>
+					<th height="50" width="150">星期二</th>
+					<th height="50" width="150">星期三</th>
+					<th height="50" width="150">星期四</th>
+					<th height="50" width="150">星期五</th>
+					<th height="50" width="150">星期六</th>
+					<th height="50" width="150">星期日</th>
+				</tr>
+				<tr valign="middle" align="center">
+					<th rowspan="2" height="200" width="75">上午</th>
+					<td height="100" width="75">一</td>
+					<td height="100" width="75"></td>
+					<td>
+						视听说</br>
+					    金明综合楼5302
+					</td>
+					<td>
+						<a href="http://www.docin.com/touch/detail.do?id=551231124">
+						读写译<br>
+					    金明综合楼3301
+						</a>
+					</td>
+					<td>
+						java程序设计<br>
+					    608
+					</td>
+					<td>
+						c#程序设计<br>
+					    608
+					</td>
+					<td>
+						毛概<br>
+						金明综合楼1203
+					</td>
+					<td></td>					
+				</tr>
+				<tr valign="middle" align="center">
+					<td>二</td>
+					<td></td>
+					<td>
+						c#程序设计<br>
+					    608
+					</td>
+					<td>
+						大学体育
+					</td>
+					<td>
+						汇编语言与接口设计<br>
+						A楼数媒实训室
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>					
+				</tr>
+				<tr>
+					<th height="100" width="75">中午</th>
+					<td height="100" width="75">三</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th rowspan="2" height="200" width="75">下午</th>
+					<td height="100" width="75">四</td>
+					<td>
+						java程序设计<br>
+					    608
+					</td>
+					<td>
+						逻辑设计实验<br>
+						A楼
+					</td>
+					<td>
+						<a href="https://wenku.baidu.com/view/f2920a8127fff705cc1755270722192e44365851.html?pn=50">离散数学<br>
+						计算机大楼101
+						</a>
+					</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td height="100" width="75">五</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th rowspan="2" height="200" width="75">晚上</th>
+					<td height="100" width="75">六</td>
+					<td></td>
+					<td>
+						<a href="https://wk.baidu.com/view/616f0d38f56527d3240c844769eae009581ba281?pcf=2">
+						逻辑设计<br>
+						金明综合楼6304
+						</a>
+					</td>
+					<td>
+						<a href="https://wk.baidu.com/view/9c7b65b6bb4cf7ec4afed0be?pcf=2">
+						汇编语言与接口设计<br>
+						金明综合楼5306
+						</a>
+					</td>
+					<td></td>
+					<td>
+						文明旅游素养<br>
+						金明综合楼5102
+					</td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td height="100" width="75">七</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+		</body>
+	</html>
